@@ -60,11 +60,11 @@ module "jumphost" {
     aws = aws.secops
   }
 
-  prefix            = "${var.project}-${var.environment}"
-  region            = var.region
-  cidr              = var.cidr
-  azs               = var.azs
-  env               = var.environment
-  vpcid             = module.vpc.vpc_id
-  public_subnets    = module.vpc.public_subnets
+  prefix         = "${var.project}-${var.environment}"
+  azs            = var.azs
+  env            = var.environment
+  vpcid          = module.vpc.vpc_id
+  public_subnets = module.vpc.public_subnets
+  random         = random_id.id
+  keyname        = var.ec2_key_name
 }
