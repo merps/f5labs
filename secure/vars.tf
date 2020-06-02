@@ -22,11 +22,6 @@ variable "ec2_key_name" {
   description = "EC2 KeyPair name"
 }
 
-variable "ec2_key_file" {
-  ## TODO generation and place in SSM instead of here, re: UoN
-  description = "EC2 Pem File"
-}
-
 variable "environment" {
   description = "Customer Environment short name for deployment."
 }
