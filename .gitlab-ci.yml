@@ -7,6 +7,7 @@ image:
 # Default output file for Terraform plan
 variables:
   GITLAB_TF_ADDRESS: ${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/terraform/state/${CI_PROJECT_NAME}
+  VARS: vars.tfvars
   PLAN: plan.tfplan
   PLAN_JSON: tfplan.json
   TF_ROOT: ${CI_PROJECT_DIR}/secure
@@ -35,7 +36,7 @@ validate:
 plan:
   stage: build
   script:
-    - terraform plan -out=$PLAN
+    - terraform plan -var-file=$VARS -out=$PLAN
     - terraform show --json $PLAN | convert_report > $PLAN_JSON
   artifacts:
     name: plan
