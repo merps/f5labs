@@ -1,9 +1,0 @@
-cidr           = "10.0.0.0/16"
-azs            = ["ap-southeast-2a", "ap-southeast-2b"]
-region         = "ap-southeast-2"
-secops-profile = "default"
-customer       = "f5labs"
-ec2_key_name   = "mjk-f5cs-apse2"
-ec2_key_file   = "/home/merps/work/kp/mjk-f5cs-apse2.pem"
-environment    = "demo"
-project        = "f5labs"
