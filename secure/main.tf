@@ -49,27 +49,6 @@ module "bigip" {
   database_subnets = module.vpc.database_subnets
   random           = random_id.id
   keyname          = var.ec2_key_name
-  keyfile          = var.ec2_key_file
-}
-/*
-# Create Docker host as per requirements
-*/
-module "docker" {
-  source = "../modules/functions/docker"
-
-  providers = {
-    aws = aws.secops
-  }
-
-  prefix          = "${var.project}-${var.environment}"
-  cidr            = var.cidr
-  azs             = var.azs
-  env             = var.environment
-  vpcid           = module.vpc.vpc_id
-  private_subnets = module.vpc.private_subnets
-  random          = random_id.id
-  keyname         = var.ec2_key_name
-  keyfile         = var.ec2_key_file
 }
 /*
 # Create Jump host as per requirements
@@ -88,13 +67,4 @@ module "jumphost" {
   env               = var.environment
   vpcid             = module.vpc.vpc_id
   public_subnets    = module.vpc.public_subnets
-  public_nic_ids    = module.bigip.public_nic_ids
-  docker_private_ip = module.docker.docker_private_ip
-  random            = random_id.id
-  keyname           = var.ec2_key_name
-  keyfile           = var.ec2_key_file
-  bigip_mgmt_addr   = module.bigip.mgmt_addresses
-  bigip_mgmt_dns    = module.bigip.mgmt_public_dns
-  bigip_password    = module.bigip.bigip_password
-  bigip_private_add = module.bigip.private_addresses
 }
