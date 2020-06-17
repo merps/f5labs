@@ -4,6 +4,8 @@
 terraform {
   required_version = ">= 0.12"
   backend "http" {
+    username = var.username
+    password = var.password
   }
 }
 /*
