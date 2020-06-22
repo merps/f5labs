@@ -14,7 +14,6 @@ terraform {
     skip_region_validation = true
   }
 }
-}
 /*
 # Create a random id
 */
