@@ -4,7 +4,7 @@
 terraform {
   required_version = ">= 0.12"
   backend "s3" {
-    endpoint = "https://jackdaws.wirelessravens.org:9000/"
+    endpoint = "https://s3.wirelessravens.org:9000/"
     key = "terraform.tfstate"
     region = "main"
     skip_requesting_account_id = true
