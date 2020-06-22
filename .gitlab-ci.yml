@@ -23,7 +23,7 @@ before_script:
   - terraform --version
 # commected out for MiniO validation since http store is aplha or something
 #  - terraform init -backend-config="address=${GITLAB_TF_ADDRESS}" -backend-config="lock_address=${GITLAB_TF_ADDRESS}/lock" -backend-config="unlock_address=${GITLAB_TF_ADDRESS}/lock" -backend-config="username=${GITLAB_USER_LOGIN}" -backend-config="password=${GITLAB_TF_PASSWORD}" -backend-config="lock_method=POST" -backend-config="unlock_method=DELETE" -backend-config="retry_wait_min=5" -backend-config="skip_cert_verification=true"
-  - terraform init -backend-config="access_key=$MINIO_ACCESS_TOKEN" -backend-config="secret_key=$MINIO_SECRET_KEY" -backend-config="bucket=$BUCKET" 
+  - terraform init -backend-config="access_key=${MINIO_ACCESS_TOKEN}" -backend-config="{secret_key=$MINIO_SECRET_KEY}" -backend-config="bucket=${BUCKET}" 
   
 stages:
   - validate
