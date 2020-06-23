@@ -104,3 +104,8 @@ module "bigip_mgmt_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
 }
+
+resource "bigip_do"  "do-this" {
+  do_json = file("files/do-declaration.json")
+  tenant_name = "as3"
+}

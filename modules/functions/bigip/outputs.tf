@@ -22,6 +22,10 @@ output "private_addresses" {
   value       = module.bigip.private_addresses
 }
 
+output "public_ip" {
+  description = "BIG-IP Public IP Addresses"
+  value = module.bigip.public_addresses
+}
 output "bigip_mgmt_port" {
   description = "BIG-IP Management Port"
   value       = module.bigip.mgmt_port

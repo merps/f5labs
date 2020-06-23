@@ -7,9 +7,7 @@ terraform {
     endpoint = "https://jackdaws.wirelessravens.org:9000/"
     key = "terraform.tfstate"
     region = "main"
-    skip_requesting_account_id = true
     skip_credentials_validation = true
-    skip_get_ec2_platforms = true
     skip_metadata_api_check = true
     skip_region_validation = true
     force_path_style = true
@@ -27,10 +25,6 @@ resource "random_id" "id" {
 module "vpc" {
   source = "../modules/services/network"
 
-  providers = {
-    aws = aws.secops
-  }
-
   prefix = "${var.project}-${var.environment}"
   cidr   = var.cidr
   azs    = var.azs
@@ -43,10 +37,6 @@ module "vpc" {
 */
 module "bigip" {
   source = "../modules/functions/bigip"
-
-  providers = {
-    aws = aws.secops
-  }
 
   prefix           = "${var.project}-${var.environment}"
   cidr             = var.cidr
@@ -64,10 +54,6 @@ module "bigip" {
 */
 module "jumphost" {
   source = "../modules/functions/jumphost"
-
-  providers = {
-    aws = aws.secops
-  }
 
   prefix         = "${var.project}-${var.environment}"
   azs            = var.azs
