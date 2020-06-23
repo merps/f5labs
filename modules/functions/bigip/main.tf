@@ -112,10 +112,16 @@ locals {
           tolist(module.bigip.mgmt_public_ips))
 }
 provider "bigip" {
- address = element([module.bigip.mgmt_public_dns[*].value], 0)
- username = "admin"
- password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
- }
+  username = "admin"
+  password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
+
+  dynamic "connection" {
+    for_each = module.bigip.mgmt_public_dns
+    content {
+      address = connection.value[*]
+    }
+  }
+}
 
 resource "bigip_do"  "do-this" {
   do_json = file("${path.module}/files/do-declaration.json")
