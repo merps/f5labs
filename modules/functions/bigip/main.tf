@@ -112,7 +112,7 @@ locals {
           tolist(module.bigip.mgmt_public_ips))
 }
 provider "bigip" {
- address = element([module.bigip.public_addresses], 0)
+ address = element([module.bigip.mgmt_public_dns], 0)
  username = "admin"
  password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
  }
