@@ -104,6 +104,7 @@ module "bigip_mgmt_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
 }
+
 # TODO break time but must extract string var and pass
 /*
 module "bigip_do_base" {
