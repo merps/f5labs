@@ -64,12 +64,11 @@ module "jumphost" {
   keyname        = var.ec2_key_name
 }
 
-
 # TODO break time but must extract string var and pass
 module "bigip_do_base" {
   source = "../modules/functions/do-base"
 
-  bigip_mgmt_public_ip = module.bigip.mgmt_public_ips[0]
+  bigip_mgmt_public_ip = module.bigip.mgmt_public_dns[0]
   bigip_mgmt_admin = "admin"
   bigip_mgmt_passwd = module.bigip.bigip_password
 
