@@ -1,5 +1,8 @@
+locals {
+  address = var.bigip_mgmt_public_ip
+}
 provider "bigip" {
-  address = var.bigip_mgmt_public_dns
+  address = local.address
   username = var.bigip_mgmt_admin
   password = var.bigip_mgmt_passwd
 }
