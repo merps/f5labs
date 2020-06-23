@@ -1,5 +1,5 @@
 provider "bigip" {
-  address = var.bigip_mgmt_public_dns
+  address = var.bigip_mgmt_public_ip
   username = var.bigip_mgmt_admin
   password = var.bigip_mgmt_passwd
 }
