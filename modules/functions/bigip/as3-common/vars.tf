@@ -1,47 +1,14 @@
-variable "cidr" {
-
+variable "bigip_mgmt_public_dns" {
+  type = string
+  description = "public ip's"
 }
 
-variable "prefix" {
-
+variable "bigip_mgmt_admin" {
+  type = string
+  description = "admin"
 }
 
-variable "public_subnets" {
-
-}
-
-variable "private_subnets" {
-
-}
-
-variable "database_subnets" {
-
-}
-
-variable "azs" {
-
-}
-
-variable "env" {
-
-}
-
-variable "random" {
-
-}
-
-variable "keyname" {
-
-}
-
-variable "vpcid" {
-
-}
-
-variable "allowed_mgmt_cidr" {
-  default = "0.0.0.0/0"
-}
-
-variable "allowed_app_cidr" {
-  default = "0.0.0.0/0"
+variable "bigip_mgmt_passwd" {
+  type = string
+  description = "admin"
 }
