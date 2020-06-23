@@ -113,7 +113,8 @@ module "bigip_do_base" {
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
 
 }
-
+# TODO need to update the json template so this common is out at the moment
+/*
 module "bigip_as3_common" {
   source = "./as3-common"
 
@@ -122,3 +123,4 @@ module "bigip_as3_common" {
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
 
 }
+*/
