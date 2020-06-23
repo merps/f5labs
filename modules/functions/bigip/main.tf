@@ -104,7 +104,8 @@ module "bigip_mgmt_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
 }
-
+# TODO break time but must extract string var and pass
+/*
 module "bigip_do_base" {
   source = "./do-base"
 
@@ -113,6 +114,7 @@ module "bigip_do_base" {
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
 
 }
+*/
 # TODO need to update the json template so this common is out at the moment
 /*
 module "bigip_as3_common" {
