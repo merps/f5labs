@@ -104,13 +104,18 @@ module "bigip_mgmt_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
 }
+
+locals {
+  public-ip = try(
+          [tostring(module.bigip.mgmt_public_ips)],
+          tolist(module.bigip.mgmt_public_ips))
+}
 provider "bigip" {
- address = module.bigip.mgmt_addresses[0]
+ address = local.public-ip[0]
  username = "admin"
- password = aws_secretsmanager_secret_version.bigip-pwd
+ password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
  }
 
 resource "bigip_do"  "do-this" {
   do_json = file("${path.module}/files/do-declaration.json")
-  tenant_name = "as3"
-}
+ }
