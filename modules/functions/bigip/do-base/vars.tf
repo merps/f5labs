@@ -1,4 +1,4 @@
-variable "bigip_mgmt_public_dns" {
+variable "bigip_mgmt_public_ip" {
   description = "public ip's"
 }
 

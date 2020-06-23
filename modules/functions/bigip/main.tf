@@ -110,7 +110,7 @@ module "bigip_mgmt_sg" {
 module "bigip_do_base" {
   source = "./do-base"
 
-  bigip_mgmt_public_dns = module.bigip.mgmt_public_dns[0]
+  bigip_mgmt_public_ip = module.bigip.mgmt_public_ips[0]
   bigip_mgmt_admin = "admin"
   bigip_mgmt_passwd = random_password.password.result
 
