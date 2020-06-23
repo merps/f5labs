@@ -105,17 +105,19 @@ module "bigip_mgmt_sg" {
   egress_rules       = ["all-all"]
 }
 
+
 locals {
   public-ip = try(
           [tostring(module.bigip.mgmt_public_ips)],
           tolist(module.bigip.mgmt_public_ips))
 }
 provider "bigip" {
- address = local.public-ip[0]
+ address = element(module.bigip.public_addresses, 0)
  username = "admin"
  password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
  }
 
 resource "bigip_do"  "do-this" {
   do_json = file("${path.module}/files/do-declaration.json")
- }
+  tenant_name = "thang"
+}
