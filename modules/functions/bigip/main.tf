@@ -104,6 +104,11 @@ module "bigip_mgmt_sg" {
   egress_cidr_blocks = ["0.0.0.0/0"]
   egress_rules       = ["all-all"]
 }
+provider "bigip" {
+ address = module.bigip.mgmt_addresses[0]
+ username = "admin"
+ password = aws_secretsmanager_secret_version.bigip-pwd
+ }
 
 resource "bigip_do"  "do-this" {
   do_json = file("files/do-declaration.json")
