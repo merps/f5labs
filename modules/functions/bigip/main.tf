@@ -112,7 +112,7 @@ module "bigip_do_base" {
 
   bigip_mgmt_public_ip = module.bigip.mgmt_public_ips[0]
   bigip_mgmt_admin = "admin"
-  bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
+  bigip_mgmt_passwd = random_password.password.result
 
 }
 
