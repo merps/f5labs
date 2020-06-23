@@ -68,9 +68,9 @@ module "jumphost" {
 module "bigip_do_base" {
   source = "../modules/functions/do-base"
 
-  bigip_mgmt_public_ip = module.bigip.mgmt_public_dns[0]
+  bigip_mgmt_public_ip = "${module.bigip.mgmt_public_dns[0]}"
   bigip_mgmt_admin = "admin"
-  bigip_mgmt_passwd = module.bigip.bigip_password
+  bigip_mgmt_passwd = "${module.bigip.bigip_password}"
 
 }
 
