@@ -111,5 +111,5 @@ module "bigip_do_base" {
   bigip_mgmt_public_dns = module.bigip.mgmt_public_dns[*]
   bigip_mgmt_admin = "admin"
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
-  
+
 }
