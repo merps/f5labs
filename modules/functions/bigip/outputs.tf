@@ -35,7 +35,3 @@ output "bigip_password" {
   description = "BIG-IP management password"
   value       = random_password.password.result
 }
-
-output "rendered" {
-  value = module.bigip.public_addresses
-}
