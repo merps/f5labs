@@ -106,16 +106,16 @@ module "bigip_mgmt_sg" {
 }
 
 # TODO break time but must extract string var and pass
-/*
+
 module "bigip_do_base" {
   source = "./do-base"
 
-  bigip_mgmt_public_ip = module.bigip.[0]
+  bigip_mgmt_public_ip = module.bigip.mgmt_public_ips[0]
   bigip_mgmt_admin = "admin"
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
 
 }
-*/
+
 # TODO need to update the json template so this common is out at the moment
 /*
 module "bigip_as3_common" {

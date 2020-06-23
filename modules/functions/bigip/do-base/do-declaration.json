@@ -5,7 +5,7 @@
     "async": true,
     "Common": {
         "class": "Tenant",
-        "hostname": "${var.bigip_hostname}",
+        "hostname": "sometihng",
         "myDns": {
             "class": "DNS",
             "nameServers": [
@@ -54,7 +54,7 @@
         },
         "external-self": {
             "class": "SelfIp",
-            "address": "${var.public_addresses}",
+            "address": "12.12.12.12",
             "vlan": "external",
             "allowService": [
                 "tcp:443"
@@ -63,7 +63,7 @@
         },
         "internal-self": {
             "class": "SelfIp",
-            "address": "${var.bigip_internal_self_ip}",
+            "address": "21.21.21.21",
             "vlan": "internal",
             "allowService": "default",
             "trafficGroup": "traffic-group-local-only"
