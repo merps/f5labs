@@ -108,18 +108,17 @@ module "bigip_mgmt_sg" {
 module "bigip_do_base" {
   source = "./do-base"
 
-  bigip_mgmt_public_ip = element([module.bigip.mgmt_addresses], count.index)
+  bigip_mgmt_public_ip = module.bigip.mgmt_addresses[0]
   bigip_mgmt_admin = "admin"
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
 
 }
-/*
+
 module "bigip_as3_common" {
   source = "./as3-common"
 
-  bigip_mgmt_public_dns = module.bigip.mgmt_public_dns[0]
+  bigip_mgmt_public_ip = module.bigip.mgmt_addresses[0]
   bigip_mgmt_admin = "admin"
   bigip_mgmt_passwd = aws_secretsmanager_secret_version.bigip-pwd.secret_string
 
 }
-*/
