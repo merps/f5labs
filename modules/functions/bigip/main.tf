@@ -111,6 +111,6 @@ provider "bigip" {
  }
 
 resource "bigip_do"  "do-this" {
-  do_json = file("files/do-declaration.json")
+  do_json = file("${path.module}/files/do-declaration.json")
   tenant_name = "as3"
 }
