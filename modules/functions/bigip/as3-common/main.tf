@@ -5,6 +5,6 @@ provider "bigip" {
 }
 
 resource "bigip_as3"  "do-this" {
-  as3_json = file("${path.module}/as3-common-de")
+  as3_json = file("${path.module}/as3-common-declaration.json")
   tenant_name = "thang"
 }
