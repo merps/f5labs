@@ -112,13 +112,14 @@ locals {
           tolist(module.bigip.mgmt_public_ips))
 }
 provider "bigip" {
-  username = "admin"
-  password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
+  for_each = module.bigip.mgmt_public_dns
 
-  dynamic "connection" {
+  dynamic "setting" {
     for_each = module.bigip.mgmt_public_dns
     content {
-      address = connection.value[*]
+      address = setting[*]
+      username = "admin"
+      password = aws_secretsmanager_secret_version.bigip-pwd.secret_string
     }
   }
 }
