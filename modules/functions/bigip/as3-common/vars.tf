@@ -45,8 +45,3 @@ variable "allowed_mgmt_cidr" {
 variable "allowed_app_cidr" {
   default = "0.0.0.0/0"
 }
-
-variable "mgmt_public_dns" {
-  type = string
-}
-
