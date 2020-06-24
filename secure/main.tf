@@ -65,6 +65,7 @@ module "jumphost" {
 }
 
 # TODO break time but must extract string var and pass
+/*
 module "bigip_do_base" {
   source = "../modules/functions/do-base"
 
@@ -73,7 +74,7 @@ module "bigip_do_base" {
   bigip_mgmt_passwd = module.bigip.bigip_password
 
 }
-
+*/
 # TODO need to update the json template so this common is out at the moment
 /*
 module "bigip_as3_common" {
