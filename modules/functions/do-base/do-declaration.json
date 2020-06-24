@@ -51,22 +51,6 @@
                     "tagged": false
                 }
             ]
-        },
-        "external-self": {
-            "class": "SelfIp",
-            "address": "12.12.12.12",
-            "vlan": "external",
-            "allowService": [
-                "tcp:443"
-            ],
-            "trafficGroup": "traffic-group-local-only"
-        },
-        "internal-self": {
-            "class": "SelfIp",
-            "address": "21.21.21.21",
-            "vlan": "internal",
-            "allowService": "default",
-            "trafficGroup": "traffic-group-local-only"
         }
     }
 }
